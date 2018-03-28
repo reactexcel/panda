@@ -73,11 +73,13 @@ export default class LocationScreen extends Component {
         </View>
         </View>
 
+
         <View style={{flex:1,marginRight:10}} >
             <View style={{flexDirection:'row',justifyContent:'flex-end',alignItems:'center',flex:1}} >
                 <Icons name="md-swap" onPress={this.handleSwap} size={30}  style={{transform: [{ rotate: '90deg'}],marginRight: 15, }}  />
             </View>
         </View>
+
 
         <View style={{flex:1,marginBottom:20,marginRight:10}} >
         <View style={{flexDirection:'row'}} >
