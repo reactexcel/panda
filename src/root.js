@@ -5,7 +5,7 @@ import DistanceScreen from './component/distanceScreen'
 import MainScreen from './component/mainScreen';
 
 const Root = StackNavigator({
-    Main: { screen: MainScreen },
+    // Main: { screen: MainScreen },
     Location: { screen: LocationScreen },
     distancescreen: { screen: DistanceScreen }
   },

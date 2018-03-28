@@ -26,7 +26,7 @@ export default class DistanceScreen extends Component {
         headerRight: <Image source={require('../assets/Pandler_icon_72px.png')} style={{height:30,width:23,marginRight:20}}  />,
         headerLeft:
                  <TouchableHighlight onPress={()=>{navigation.goBack()}} >
-                    <View style={{flex:1,justifyContent:'center',alignItems:'center'}} >
+                    <View style={{flex:1,justifyContent:'center',alignItems:'center',width:50}} >
                         <Icons name="ios-arrow-back" onClick={()=>{navigation.goBack()}}  style={{marginLeft:10}} size={25} /> 
                     </View>
                   </TouchableHighlight>,

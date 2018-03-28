@@ -40,7 +40,7 @@ export default class LocationScreen extends Component {
             headerRight: <Image source={require('../assets/Pandler_icon_72px.png')} style={{ height: 30, width: 23, marginRight: 20 }} />,
             headerLeft:
                 <TouchableOpacity onPress={() => { navigation.goBack() }} >
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',borderWidth:1,width:50 }} >
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',width:50 }} >
                         <Icons name="ios-arrow-back"  style={{ marginLeft: 10 }} size={25} />
                     </View>
                 </TouchableOpacity>,
@@ -51,7 +51,7 @@ export default class LocationScreen extends Component {
     return (
       <View style={styles.container}>
        
-       <View style={{flex:1,marginTop:50,marginRight:10}} >
+       <View style={{marginTop:20,marginRight:10}} >
         <View style={{flexDirection:'row'}} >
             
             <View style={{flex:1, margin:10}} >
@@ -68,16 +68,12 @@ export default class LocationScreen extends Component {
                 </View>
             </View>
         </View>
-        <View style={{flexDirection:'row'}} >
-            <View style={{flex:1, margin:10}} >
-              <Text> Use my current location </Text>
-            </View>
-            <View >
+        <View style={{flexDirection:'row',justifyContent:'space-between'}} >
+              <Text style={{marginLeft:10,color:'black'}} > Use my current location </Text>
                 <View style={{marginRight:10}} >
                     <Icon name="briefcase" size={25} style={{alignSelf:'center'}} />
                     <Text style={{fontSize:10}} >Work</Text>
                 </View>
-            </View>
         </View>
         </View>
 
@@ -99,28 +95,22 @@ export default class LocationScreen extends Component {
                   onChangeText={(text)=>{ this.setState({to:text})}}   />
             </Item>
             </View>
-            <View >
                 <View style={{marginRight:10}} >
                     <Icons name="ios-home-outline" size={25} style={{alignSelf:'center'}} />
                     <Text style={{fontSize:10}} >Home</Text>
                 </View>
-            </View>
         </View>
-        <View style={{flexDirection:'row'}} >
+        <View style={{flexDirection:'row',justifyContent:'space-between'}} >
             <View style={{flex:1, margin:10}} />
-            <View >
                 <View style={{marginRight:10}} >
                     <Icon name="briefcase" size={25} style={{alignSelf:'center'}} />
                     <Text style={{fontSize:10}} >Work</Text>
                 </View>
-            </View>
         </View>
         </View>
 
-        <View style={{flex:1,justifyContent:'center',alignItems:'center'}} >
-          <View>
+        <View style={{flex:1,justifyContent:'center',alignSelf:'center'}} >
             <Button dark block style={{width:170,borderRadius:5}} onPress={()=>{this.props.navigation.navigate({ routeName: 'distancescreen' })}} ><Text style={{color:'white'}} > Continue </Text></Button>
-          </View>
         </View>
 
 
