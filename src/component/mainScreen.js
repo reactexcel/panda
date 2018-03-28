@@ -26,6 +26,7 @@ export default class MainScreen extends Component {
         headerTitleStyle: {  textAlign: 'center', alignSelf: 'center', color: 'black' },
     };
     render() {
+        const { navigate } = this.props.navigation;
         return (
             <View style={styles.container}>
                 <ImageBackground
@@ -44,7 +45,7 @@ export default class MainScreen extends Component {
                 <View style={{flex:1,flexDirection:'column',padding:40}}>
                     <View style={{flex:1,flexDirection:'column',justifyContent:'space-around'}}>
                         <View style={{flexDirection:'row',justifyContent:'space-around'}}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => { navigate('Location')}} >
                                 <Icons name="ios-search-outline" size={55} style={{ alignSelf: 'center',color:'black' }} />
                                 <Text style={{ alignSelf: 'center', marginTop: 15, marginLeft: 7, color: 'black'}}>I NEED A RIDE</Text>
                             </TouchableOpacity>

@@ -11,7 +11,7 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight
+    TouchableOpacity
 } from 'react-native';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
@@ -33,12 +33,20 @@ export default class LocationScreen extends Component {
       this.setState({from : to , to: temp});
     }
 
-    static navigationOptions = {
-        title: 'Where',
-        headerTitleStyle :{alignSelf: 'center', color: 'black'},
-        headerRight: <Image source={require('../assets/Pandler_icon_72px.png')} style={{height:30,width:23,marginRight:20}}  />,
-        headerLeft: <Icons name="ios-arrow-back" style={{marginLeft:10}} size={25} />
-      };
+    static navigationOptions = ({ navigation }) => {
+        return {
+            title: 'Where',
+            headerTitleStyle: { alignSelf: 'center' },
+            headerRight: <Image source={require('../assets/Pandler_icon_72px.png')} style={{ height: 30, width: 23, marginRight: 20 }} />,
+            headerLeft:
+                <TouchableOpacity onPress={() => { navigation.goBack() }} >
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center',borderWidth:1,width:50 }} >
+                        <Icons name="ios-arrow-back"  style={{ marginLeft: 10 }} size={25} />
+                    </View>
+                </TouchableOpacity>,
+
+        }
+    };
     render() {
     return (
       <View style={styles.container}>
