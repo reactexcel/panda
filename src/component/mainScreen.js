@@ -34,9 +34,9 @@ export default class MainScreen extends Component {
                 >
                     <View style={{ backgroundColor: 'rgba(0,0,0,0.4)', flex: 1, flexDirection:'row',justifyContent:'center',alignContent:'center'}} >
                         <View style={{ justifyContent: 'space-around', alignContent: 'center'}}>
-                            <TouchableOpacity style={styles.imageContainer}>
+                            <TouchableHighlight style={styles.imageContainer}>
                                 <Image style={styles.image} source={require('../assets/pic2.png')} />
-                            </TouchableOpacity>
+                            </TouchableHighlight>
                             <Text style={{ color: 'white', fontSize: 24,textAlign:'center' }}>Hi Yen!</Text>
                         </View>
                     </View>  
