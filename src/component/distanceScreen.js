@@ -43,26 +43,61 @@ export default class DistanceScreen extends Component {
                 
                 <View style={{flexDirection:'row',borderBottomWidth:2}} >
                     <View style={{flex:1,marginLeft:20,borderRightWidth:2}} >
-                        <Text>Distance</Text>
+                        <Text style={{color:'black'}} >Distance</Text>
                         <Text style={{fontWeight:'500',color:'black'}} >0,3 Km</Text>
                     </View>
                     <View style={{flex:1,marginLeft:10,alignItems:'center'}} >
-                        <Text>Free Seats</Text>
+                        <Text style={{color:'black'}}>Free Seats</Text>
                         <View style={{flexDirection:'row'}} >
-                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >0</Text>
-                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >0</Text>
-                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >0</Text>
-                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >0</Text>
+                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >1</Text>
+                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >2</Text>
+                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >3</Text>
+                            <Text style={{fontWeight:'500',color:'black',marginRight:5}} >4</Text>
                         </View>
                     </View>
                 </View>
 
+
                 <View style={{flexDirection:'row',marginTop:5,borderBottomWidth:2}} >
-                    <View>
-                        <Text> pickup </Text>
-                        <Text> pickup </Text>
+                    <View style={{flex:1,marginLeft:20}} >
+                        <Text style={{color:'black'}}> Pick up </Text>
+                        <View style={{flexDirection:'row',marginTop:5,marginBottom:5}} >
+                            <Image source={require('../assets/Pandler_icon_72px.png')} style={{height:18,width:14}}  />
+                            <Text style={{fontWeight:'500',color:'black'}} >08.30am Tube Station Forest</Text>
+                        </View>
                     </View>
                 </View>
+
+                <View style={{flexDirection:'row',marginTop:10,marginBottom:20}} >
+                    <View style={{flex:0.4,alignItems:'center',}} >
+                        <Image source={require('../assets/Pandler_icon_72px.png')} style={{height:18,width:14}} />
+                        <Text style={{color:"black",fontSize:15,marginTop:15}} > Mara W. </Text>
+                    </View>
+                    <View style={{marginLeft:15}} >
+                        <Text style={{color:'black'}} >08.10am Lake tree 10</Text>
+                        <Text style={{marginTop:10,color:'black'}} >09.10am ebay</Text>
+                    </View>
+                </View>
+
+
+
+                <View style={{flexDirection:'row'}} >
+                    <View>
+                        <Text style={{fontSize:15,color:'black'}} > Hi everybody! </Text>
+                        <Text style={{fontSize:15,color:'black'}} > I have free space in my car and it would be nice to share a ride! </Text>
+                        <Text style={{marginTop:5,fontSize:15,color:'black'}} > Mara </Text>
+                    </View>
+                </View>
+
+
+                <View style={{flex:1,justifyContent:'center',alignItems:'center'}} >
+                    <View>
+                        <Button dark block style={{width:170,borderRadius:5}} onPress={()=>{this.props.navigation.navigate({ routeName: 'distancescreen' })}} >
+                            <Text style={{color:'white'}} > Send request </Text>
+                        </Button>
+                    </View>
+                </View>
+
 
             </View>
         </View>

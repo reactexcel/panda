@@ -4,7 +4,7 @@ import DistanceScreen from './component/distanceScreen'
 
 
 const Root = StackNavigator({
-  Main: { screen: LocationScreen },
+  // Main: { screen: LocationScreen },
   distancescreen: { screen: DistanceScreen }
 },
 );
