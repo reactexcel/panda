@@ -1,7 +1,9 @@
 import { StackNavigator } from 'react-navigation';
-import LocationScreen from './component/locationScreen'
+import MainScreen from './component/mainScreen';
+import LocationScreen from './component/locationScreen';
+
 const Root = StackNavigator({
-  Main: { screen: LocationScreen },
-},
+    Main: { screen: MainScreen },
+  },
 );
 export default Root;
