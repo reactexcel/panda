@@ -9,35 +9,54 @@ import {
   Platform,
   StyleSheet,
   View,
-  Text
+  Text,
+  Image,
+  TouchableHighlight
 } from 'react-native';
 import Icons from 'react-native-vector-icons/Ionicons';
 import Icon from 'react-native-vector-icons/dist/FontAwesome';
 import { Container, Button, Item, Input, Label, Form ,Content } from 'native-base';
 
 export default class LocationScreen extends Component {
+    constructor(props){
+      super(props);
+      this.state = {
+        from : '',
+        to: '',
+      }
+      this.handleSwap=this.handleSwap.bind(this);
+    }
+
+    handleSwap(){
+      const {from ,to } = this.state;
+      const temp = from ;
+      this.setState({from : to , to: temp});
+    }
+
     static navigationOptions = {
         title: 'Where',
         headerTitleStyle :{alignSelf: 'center', color: 'black'},
-        
+        headerRight: <Image source={require('../assets/Pandler_icon_72px.png')} style={{height:30,width:23,marginRight:20}}  />,
+        headerLeft: <Icons name="ios-arrow-back" style={{marginLeft:10}} size={25} />
       };
     render() {
     return (
       <View style={styles.container}>
        
-       <View style={{flex:1,marginTop:100}} >
+       <View style={{flex:1,marginTop:50,marginRight:10}} >
         <View style={{flexDirection:'row'}} >
             
             <View style={{flex:1, margin:10}} >
-            <Item inlineLabel >
-                <Label>From?</Label>
-                <Input />
+            <Item  >
+                <Input value={this.state.from}
+                  placeholder="From?" 
+                  onChangeText={(text)=>{ this.setState({from:text})}}  />
             </Item>
             </View>
             <View >
                 <View style={{marginRight:10}} >
-                    <Icons name="ios-home-outline" size={30} style={{alignSelf:'center'}} />
-                    <Text style={{fontSize:14}} >Home</Text>
+                    <Icons name="ios-home-outline" size={25} style={{alignSelf:'center'}} />
+                    <Text style={{fontSize:10}} >Home</Text>
                 </View>
             </View>
         </View>
@@ -47,43 +66,42 @@ export default class LocationScreen extends Component {
             </View>
             <View >
                 <View style={{marginRight:10}} >
-                    <Icon name="briefcase" size={30} style={{alignSelf:'center'}} />
-                    <Text style={{fontSize:14}} >Work</Text>
+                    <Icon name="briefcase" size={25} style={{alignSelf:'center'}} />
+                    <Text style={{fontSize:10}} >Work</Text>
                 </View>
             </View>
         </View>
         </View>
 
-        <View style={{flex:1}} >
-            <View style={{flexDirection:'row',justifyContent:'flex-end'}} >
-                <Icons name="md-swap" size={30}  style={{transform: [{ rotate: '90deg'}],marginRight: 15, }}  />
+        <View style={{flex:1,marginRight:10}} >
+            <View style={{flexDirection:'row',justifyContent:'flex-end',alignItems:'center',flex:1}} >
+                <Icons name="md-swap" onPress={this.handleSwap} size={30}  style={{transform: [{ rotate: '90deg'}],marginRight: 15, }}  />
             </View>
         </View>
 
-        <View style={{flex:1}} >
+        <View style={{flex:1,marginBottom:20,marginRight:10}} >
         <View style={{flexDirection:'row'}} >
             
             <View style={{flex:1, margin:10}} >
             <Item inlineLabel >
-                <Label>To?</Label>
-                <Input />
+                <Input value={this.state.to}
+                  placeholder="To?"
+                  onChangeText={(text)=>{ this.setState({to:text})}}   />
             </Item>
             </View>
             <View >
                 <View style={{marginRight:10}} >
-                    <Icons name="ios-home-outline" size={30} style={{alignSelf:'center'}} />
-                    <Text style={{fontSize:14}} >Home</Text>
+                    <Icons name="ios-home-outline" size={25} style={{alignSelf:'center'}} />
+                    <Text style={{fontSize:10}} >Home</Text>
                 </View>
             </View>
         </View>
         <View style={{flexDirection:'row'}} >
-            <View style={{flex:1, margin:10}} >
-              <Text> Use my current location </Text>
-            </View>
+            <View style={{flex:1, margin:10}} />
             <View >
                 <View style={{marginRight:10}} >
-                    <Icon name="briefcase" size={30} style={{alignSelf:'center'}} />
-                    <Text style={{fontSize:14}} >Work</Text>
+                    <Icon name="briefcase" size={25} style={{alignSelf:'center'}} />
+                    <Text style={{fontSize:10}} >Work</Text>
                 </View>
             </View>
         </View>
@@ -91,9 +109,11 @@ export default class LocationScreen extends Component {
 
         <View style={{flex:1,justifyContent:'center',alignItems:'center'}} >
           <View>
-            <Button dark block style={{width:170,borderRadius:5}} ><Text style={{color:'white'}} > Continue </Text></Button>
+            <Button dark block style={{width:170,borderRadius:5}} onPress={()=>{this.props.navigation.navigate({ routeName: 'distancescreen' })}} ><Text style={{color:'white'}} > Continue </Text></Button>
           </View>
         </View>
+
+
       </View>
     );
   }
@@ -103,15 +123,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
